@@ -1,17 +1,17 @@
 # Formie Headless Demo
 This is a demo of a GraphQL, headless project using [Craft CMS](https://craftcms.com), [Vue.js 3.0](https://vuejs.org/) and [Formie](https://verbb.io/craft-plugins/formie). This repository comes in two parts, the Craft CMS install and the front-end headless project. 
 
-<img width="500" src="https://verbb.io/screenshot.png">
+<img width="500" src="https://github.com/verbb/formie-headless/raw/master/screenshot.png">
 
 ## Project summary
 We're using Vue for our front-end, but the techniques employed here can be utilised on any number of GraphQL setups.
 
 - [Vite.js](https://vitejs.dev/) is used for the build system as per [Vite.js Next Generation Frontend Tooling + Craft CMS](https://nystudio107.com/blog/using-vite-js-next-generation-frontend-tooling-with-craft-cms)
-* [Vue.js 3.0](https://vuejs.org/) is used for the interactive bits.
-* [Tailwind CSS](https://tailwindcss.com/).
-* [ESlint](https://eslint.org/) to keep JS lookin' good!
-* [Vue Apollo](https://apollo.vuejs.org/) Easy GraphQL handling using Apollo for queries and mutations.
-* [Pristine.js](https://pristine.js.org/) Simple form validation.
+- [Vue.js 3.0](https://vuejs.org/) is used for the interactive bits.
+- [Tailwind CSS](https://tailwindcss.com/).
+- [ESlint](https://eslint.org/) to keep JS lookin' good!
+- [Vue Apollo](https://apollo.vuejs.org/) Easy GraphQL handling using Apollo for queries and mutations.
+- [Pristine.js](https://pristine.js.org/) Simple form validation.
 
 ## Setting up Craft
 This repository contains the Craft CMS project files in the main root folder. Little to no changes have been made from the [craftcms/craft](https://github.com/craftcms/craft) project.
@@ -60,7 +60,7 @@ Formie supports querying forms via [GraphQL queries](https://verbb.io/craft-plug
 
 Have a look at the [graphql/forms.js](https://github.com/verbb/formie-headless/frontend/src/graphql/forms.js) file, which contains the GraphQL query we use. We've split each field into a GraphQL fragment to easily re-use.
 
-We then use Apollo to [fetch the data]() from this query, given a handle for the form.
+We then use Apollo to [fetch the data](https://github.com/verbb/formie-headless/blob/c2147bfce49f9d8df3ddfd3f9270659d52a4b87a/frontend/src/components/FormieForm.vue#L92-L105) from this query, given a handle for the form.
 
 ### GraphQL mutations
 Formie supports creating submissions via [GraphQL mutations](https://verbb.io/craft-plugins/formie/docs/developers/graphql). A mutation looks something like:
@@ -85,6 +85,7 @@ While the above example seems simple, things quickly get complicated for large f
 
 To address this, we can use the data fetched for each field in our query to construct this schema string completely dynamically, using a few helper function. Have a look at the [utils/mutations.js](https://github.com/verbb/formie-headless/frontend/src/utils/mutations.js) file for how we construct this. The `getFormMutation()` will return the schema above, setup and ready to go - given a form object (received from the GraphQL query).
 
+Also see how we construct the GraphQL [schema and variables](https://github.com/verbb/formie-headless/blob/c2147bfce49f9d8df3ddfd3f9270659d52a4b87a/frontend/src/components/FormieForm.vue#L144-L167) to send to the server.
 
 <h2></h2>
 
