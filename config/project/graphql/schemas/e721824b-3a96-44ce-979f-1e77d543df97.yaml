@@ -1,0 +1,19 @@
+isPublic: true
+name: 'Public Schema'
+scope:
+  - 'elements.drafts:read'
+  - 'elements.revisions:read'
+  - 'elements.inactive:read'
+  - 'sections.fbe2bb47-a84e-4366-b957-3e127152e75a:read' # Demo
+  - 'entrytypes.ee2e044d-867d-4cdf-b1b3-4e0d51e7a818:read' # Default
+  - 'volumes.adf62689-9e99-4040-8bb3-c06de71033be:read' # Demo
+  - 'globalsets.6b96e0b0-0c3f-4de5-8631-0de30b34872c:read' # Demo
+  - 'usergroups.everyone:read'
+  - 'categorygroups.12530c06-549d-4664-97d3-2a96906bde12:read' # Demo
+  - 'taggroups.9ee7d758-c5b1-4f5a-a4d4-8c2e19e6cb15:read' # Demo
+  - 'formieForms.all:read'
+  - 'formieSubmissions.all:read'
+  - 'formieSubmissions.all:edit'
+  - 'formieSubmissions.all:create'
+  - 'formieSubmissions.all:save'
+  - 'formieSubmissions.all:delete'

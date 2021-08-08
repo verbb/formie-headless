@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: 'Formie Headless'
+primary: true
+siteGroup: cf7b2541-4843-417e-9652-9a5d1a5a15a7 # Formie Headless
+sortOrder: 1

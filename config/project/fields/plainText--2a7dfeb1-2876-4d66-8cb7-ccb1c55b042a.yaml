@@ -1,0 +1,19 @@
+columnSuffix: kukrbgdv
+contentColumnType: text
+fieldGroup: d644334e-fac0-46a1-8543-211e5168b02c # Common
+handle: plainText
+instructions: ''
+name: 'Plain Text'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

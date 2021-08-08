@@ -1,0 +1,19 @@
+fieldLayouts:
+  f6ac1175-0650-454a-87ac-3af1d5ed99c4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2a7dfeb1-2876-4d66-8cb7-ccb1c55b042a # Plain Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: demo
+name: Demo
+sortOrder: 1

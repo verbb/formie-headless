@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: demo
+name: Demo
+propagationMethod: all
+siteSettings:
+  00079eeb-bb55-40b2-867b-65ed3665219f: # Formie Headless
+    enabledByDefault: true
+    hasUrls: true
+    template: demo/_entry
+    uriFormat: 'demo/{slug}'
+type: channel
