@@ -1,7 +1,7 @@
 # Formie Headless Demo
 This is a demo of a GraphQL, headless project using [Craft CMS](https://craftcms.com), [Vue.js 3.0](https://vuejs.org/) and [Formie](https://verbb.io/craft-plugins/formie). This repository comes in two parts, the Craft CMS install and the front-end headless project. 
 
-<img width="500" src="https://github.com/verbb/formie-headless/raw/master/screenshot.png">
+<img src="https://github.com/verbb/formie-headless/raw/master/screenshot.png">
 
 ## Project summary
 We're using Vue for our front-end, but the techniques employed here can be utilised on any number of GraphQL setups.
