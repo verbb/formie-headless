@@ -55,6 +55,24 @@ The handle of the form you would like to show. You can also pass in a query para
 
 You should see the "Contact Form"!
 
+### Vue project
+We've used Vue for this demo, but the concepts used here could be used in any framework. Be sure to check out the GraphQL sections below for the "good stuff".
+
+Otherwise, the Vue components used in this demo are fully-featured, so there are some complexities that you might not need for your site. For example, being able to handle different lable and instruction locations.
+
+#### Component summary
+- `App` - The wrapper component that holds a form.
+- `FormieForm` - The form component, which handles all GraphQL handling, overall form-level functionality
+- `FormiePage` - Each page in the form uses this component. Pages contain back/next page buttons.
+- `FormieField` - Each field wraps another component in `inputs/` to keep things modular.
+- `inputs/` - Each input type has its own component file, as each require different implementations.
+- `mixins/FieldMixin` - Each field uses this mixin, and contains common functionality.
+
+#### Validation
+We decided not to include a Vue-based validation framework, to help not tie this project too deeply to Vue - in terms of functionality. [VeeValidate](https://vee-validate.logaretm.com/v4/) and [Vuelidate](https://vuelidate.js.org/) are both quite opinionated when it comes to structing components. We thought this would get in the way of understanding this demo project, and at the same time requires understanding of those frameworks to understand the form/field structure.
+
+As such, our approach is very light-on, using [Pristine.js](https://pristine.js.org/) which is entirely framework-agnostic. Of course, feel free to use your own validation options.
+
 ### GraphQL queries
 Formie supports querying forms via [GraphQL queries](https://verbb.io/craft-plugins/formie/docs/developers/graphql), including form settings, pages, and of course fields. From this endpoint, you cna fetch everything you need about a form for rendering it in your app.
 
