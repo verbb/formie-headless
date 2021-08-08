@@ -4,7 +4,7 @@ This is a demo of a GraphQL, headless project using [Craft CMS](https://craftcms
 <img src="https://github.com/verbb/formie-headless/raw/master/screenshot.png">
 
 ## Project summary
-We're using Vue for our front-end, but the techniques employed here can be utilised on any number of GraphQL setups.
+We're using Vue for our front-end, but the techniques employed here can be utilised on any number of GraphQL-based projects. Even if you're not using Vue, we'd encourage you to spin up the project as-is to see it all working, and you can pick-and-choose functionality to use in your own applications.
 
 - [Vite.js](https://vitejs.dev/) is used for the build system as per [Vite.js Next Generation Frontend Tooling + Craft CMS](https://nystudio107.com/blog/using-vite-js-next-generation-frontend-tooling-with-craft-cms)
 - [Vue.js 3.0](https://vuejs.org/) is used for the interactive bits.
