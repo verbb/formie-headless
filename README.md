@@ -112,6 +112,9 @@ To address this, we can use the data fetched for each field in our query to cons
 
 Also see how we construct the GraphQL [schema and variables](https://github.com/verbb/formie-headless/blob/c2147bfce49f9d8df3ddfd3f9270659d52a4b87a/frontend/src/components/FormieForm.vue#L144-L167) to send to the server.
 
+## Credits & Thanks
+Thanks to [Dave Stockley / magicspon](https://github.com/magicspon) for their work on the mutations generator.
+
 <h2></h2>
 
 <a href="https://verbb.io" target="_blank">
