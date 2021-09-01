@@ -65,7 +65,7 @@ You should see the "Contact Form"!
 ### Vue project
 We've used Vue for this demo, but the concepts used here could be used in any framework. Be sure to check out the GraphQL sections below for the "good stuff".
 
-Otherwise, the Vue components used in this demo are fully-featured, so there are some complexities that you might not need for your site. For example, being able to handle different lable and instruction locations.
+Otherwise, the Vue components used in this demo are fully-featured, so there are some complexities that you might not need for your site. For example, being able to handle different label and instruction locations.
 
 #### Component summary
 - `App` - The wrapper component that holds a form.
