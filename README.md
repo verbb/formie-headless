@@ -108,7 +108,7 @@ Here, you define the query which includes all field you want to create content f
 
 While the above example seems simple, things quickly get complicated for large forms, or where you want clients to be able to create their own forms (rightly so!). You'd then need to setup a schema for every field you want to use.
 
-To address this, we can use the data fetched for each field in our query to construct this schema string completely dynamically, using a few helper function. Have a look at the [utils/mutations.js](https://github.com/verbb/formie-headless/frontend/src/utils/mutations.js) file for how we construct this. The `getFormMutation()` will return the schema above, setup and ready to go - given a form object (received from the GraphQL query).
+To address this, we can use the data fetched for each field in our query to construct this schema string completely dynamically, using a few helper function. Have a look at the [utils/mutations.js](https://github.com/verbb/formie-headless/blob/master/frontend/src/utils/mutations.js) file for how we construct this. The `getFormMutation()` will return the schema above, setup and ready to go - given a form object (received from the GraphQL query).
 
 Also see how we construct the GraphQL [schema and variables](https://github.com/verbb/formie-headless/blob/c2147bfce49f9d8df3ddfd3f9270659d52a4b87a/frontend/src/components/FormieForm.vue#L144-L167) to send to the server.
 
