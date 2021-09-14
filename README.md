@@ -83,7 +83,7 @@ As such, our approach is very light-on, using [Pristine.js](https://pristine.js.
 ### GraphQL queries
 Formie supports querying forms via [GraphQL queries](https://verbb.io/craft-plugins/formie/docs/developers/graphql), including form settings, pages, and of course fields. From this endpoint, you cna fetch everything you need about a form for rendering it in your app.
 
-Have a look at the [graphql/forms.js](https://github.com/verbb/formie-headless/frontend/src/graphql/forms.js) file, which contains the GraphQL query we use. We've split each field into a GraphQL fragment to easily re-use.
+Have a look at the [graphql/forms.js](https://github.com/verbb/formie-headless/blob/master/frontend/src/graphql/forms.js) file, which contains the GraphQL query we use. We've split each field into a GraphQL fragment to easily re-use.
 
 We then use Apollo to [fetch the data](https://github.com/verbb/formie-headless/blob/c2147bfce49f9d8df3ddfd3f9270659d52a4b87a/frontend/src/components/FormieForm.vue#L92-L105) from this query, given a handle for the form.
 
