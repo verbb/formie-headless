@@ -1,6 +1,13 @@
 # Formie Headless Demo
 This is a demo of a GraphQL, headless project using [Craft CMS](https://craftcms.com), [Vue.js 3.0](https://vuejs.org/) and [Formie](https://verbb.io/craft-plugins/formie). This repository comes in two parts, the Craft CMS install and the front-end headless project. 
 
+## Demo
+Take the demo for a spin! 
+- [Contact Form](https://formie-headless.verbb.io/?form=contactForm)
+- [All Fields](https://formie-headless.verbb.io/?form=fieldsDemo)
+
+<h2></h2>
+
 <img src="https://github.com/verbb/formie-headless/raw/master/screenshot.png">
 
 ## Project summary
@@ -58,7 +65,7 @@ You should see the "Contact Form"!
 ### Vue project
 We've used Vue for this demo, but the concepts used here could be used in any framework. Be sure to check out the GraphQL sections below for the "good stuff".
 
-Otherwise, the Vue components used in this demo are fully-featured, so there are some complexities that you might not need for your site. For example, being able to handle different lable and instruction locations.
+Otherwise, the Vue components used in this demo are fully-featured, so there are some complexities that you might not need for your site. For example, being able to handle different label and instruction locations.
 
 #### Component summary
 - `App` - The wrapper component that holds a form.
@@ -76,7 +83,7 @@ As such, our approach is very light-on, using [Pristine.js](https://pristine.js.
 ### GraphQL queries
 Formie supports querying forms via [GraphQL queries](https://verbb.io/craft-plugins/formie/docs/developers/graphql), including form settings, pages, and of course fields. From this endpoint, you cna fetch everything you need about a form for rendering it in your app.
 
-Have a look at the [graphql/forms.js](https://github.com/verbb/formie-headless/frontend/src/graphql/forms.js) file, which contains the GraphQL query we use. We've split each field into a GraphQL fragment to easily re-use.
+Have a look at the [graphql/forms.js](https://github.com/verbb/formie-headless/blob/master/frontend/src/graphql/forms.js) file, which contains the GraphQL query we use. We've split each field into a GraphQL fragment to easily re-use.
 
 We then use Apollo to [fetch the data](https://github.com/verbb/formie-headless/blob/c2147bfce49f9d8df3ddfd3f9270659d52a4b87a/frontend/src/components/FormieForm.vue#L92-L105) from this query, given a handle for the form.
 
@@ -101,9 +108,12 @@ Here, you define the query which includes all field you want to create content f
 
 While the above example seems simple, things quickly get complicated for large forms, or where you want clients to be able to create their own forms (rightly so!). You'd then need to setup a schema for every field you want to use.
 
-To address this, we can use the data fetched for each field in our query to construct this schema string completely dynamically, using a few helper function. Have a look at the [utils/mutations.js](https://github.com/verbb/formie-headless/frontend/src/utils/mutations.js) file for how we construct this. The `getFormMutation()` will return the schema above, setup and ready to go - given a form object (received from the GraphQL query).
+To address this, we can use the data fetched for each field in our query to construct this schema string completely dynamically, using a few helper function. Have a look at the [utils/mutations.js](https://github.com/verbb/formie-headless/blob/master/frontend/src/utils/mutations.js) file for how we construct this. The `getFormMutation()` will return the schema above, setup and ready to go - given a form object (received from the GraphQL query).
 
 Also see how we construct the GraphQL [schema and variables](https://github.com/verbb/formie-headless/blob/c2147bfce49f9d8df3ddfd3f9270659d52a4b87a/frontend/src/components/FormieForm.vue#L144-L167) to send to the server.
+
+## Credits & Thanks
+Thanks to [Dave Stockley / magicspon](https://github.com/magicspon) for their work on the mutations generator.
 
 <h2></h2>
 

@@ -1,3 +1,8 @@
+//
+// Credit to Dave Stockley (magicspon)
+// https://github.com/magicspon
+//
+
 import gql from 'graphql-tag';
 import { FormDataJson } from 'form-data-json-convert';
 import { flatMap, isPlainObject } from 'lodash-es';
