@@ -360,6 +360,12 @@ export const FormFragment = gql`
             value
         }
 
+        captchas {
+            handle
+            name
+            value
+        }
+
         settings {
             displayFormTitle
             displayPageTabs

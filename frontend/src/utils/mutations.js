@@ -6,9 +6,11 @@ export const getFormFieldMeta = (form) => {
     const allRows = flatMap(form.pages, 'rows');
     const allFields = flatMap(allRows, 'fields');
 
-    return flatMap(allFields, ({ handle, inputTypeName }) => {
+    const fields = flatMap(allFields, ({ handle, inputTypeName }) => {
         return { handle, inputTypeName };
     });
+
+    return fields;
 };
 
 function createMutationHandle(form) {
@@ -16,15 +18,29 @@ function createMutationHandle(form) {
 }
 
 function createMutationTypes(form) {
-    return getFormFieldMeta(form).map(({ handle, inputTypeName }) => {
+    const types = getFormFieldMeta(form).map(({ handle, inputTypeName }) => {
         return `$${handle}: ${inputTypeName}`;
-    }).join(', ');
+    });
+
+    // Add in any captcha tokens generated when we queried the form.
+    form.captchas.forEach((captcha) => {
+        types.push(`$${captcha.handle}: FormieCaptchaInput`);
+    });
+
+    return types.join(', ');
 }
 
 function createMutationValues(form) {
-    return flatMap(getFormFieldMeta(form), 'handle').map((key) => {
+    const values = flatMap(getFormFieldMeta(form), 'handle').map((key) => {
         return `${key}: $${key}`;
-    }).join(', ');
+    });
+
+    // Add in any captcha tokens generated when we queried the form.
+    form.captchas.forEach((captcha) => {
+        values.push(`${captcha.handle}: $${captcha.handle}`);
+    });
+
+    return values.join(', ');
 }
 
 export const getFormMutation = (form) => {
@@ -90,6 +106,14 @@ export const getMutationVariables = (form, el) => {
         }
 
         object[info.handle] = value;
+    });
+
+    // Add in any captcha tokens generated when we queried the form.
+    form.captchas.forEach((captcha) => {
+        object[captcha.handle] = {
+            name: captcha.name,
+            value: captcha.value,
+        };
     });
 
     return object;
