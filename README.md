@@ -112,6 +112,142 @@ To address this, we can use the data fetched for each field in our query to cons
 
 Also see how we construct the GraphQL [schema and variables](https://github.com/verbb/formie-headless/blob/c2147bfce49f9d8df3ddfd3f9270659d52a4b87a/frontend/src/components/FormieForm.vue#L144-L167) to send to the server.
 
+#### Captchas
+A little extra work is required for captchas to be supported correctly. Ensure you add the following to your GQL form query to fetch tokens generated server-side.
+
+```json
+{
+    form (handle: "contactForm") {
+        ...
+
+        captchas {
+            handle
+            name
+            value
+        }
+    }
+}
+```
+
+Here, we're fetching 3 vital bits of information, which is the `handle` of the Captcha integration, the `name` of the session variable used to compare the tokens between client and server, and the `value` of the token.
+
+To authenticate your enabled Captchas correctly, you'll need to include these in your mutation, sent to the server.
+
+```json
+// Query
+mutation saveSubmission($yourName:contactForm_yourName_FormieNameInput $javascriptCaptcha: FormieCaptchaInput) {
+    save_contactForm_Submission(yourName: $yourName, javascriptCaptcha: $javascriptCaptcha) {
+        title
+    }
+}
+
+// Query Variables
+{
+    "yourName": {
+        "firstName": "Peter",
+        "lastName": "Sherman"
+    },
+    "javascriptCaptcha": {
+        "name": "__JSCHK_8403842",
+        "value": "1234"
+    }
+}
+```
+
+The `javascriptCaptcha` param above is using the `handle`, `name` and `value` fetching during our initial query of the form. Our helper functions `getMutationVariables()` and `getFormMutation()` will add the correct typing to the mutation, and inject them into the variables sent alongside the mutation. But you can of course construct the mutation and variables manually as per the above if you don't use our helpers.
+
+However, you'll also need to setup your Craft install to handle a persistent cookie session. This is because these captchas generate a unique value when the form is rendered (or in the case of GraphQL - when queried), which are then used to compare when the form is submitted. These values are stored server-side in a session, however this is not typically persisted for most requests due to CORS. Fortunately, this can be configurable through a number of different settings.
+
+First, we'll need to modify our client-side code to include `credentials`. This is to ensure your front-end code persists cookies with the server. For Apollo (which this demo uses) you can use:
+
+```js
+const apolloProvider = createApolloProvider({
+    defaultClient: new ApolloClient({
+        // ...
+
+        // Enable sending cookies over cross-origin requests
+        credentials: 'include',
+    }),
+});
+```
+
+You can also use `credentials: 'same-origin'` if your backend server is the same domain, or `credentials: 'include'` if your backend is a different domain.
+
+Next, you'll need to configure your server (if you haven't already) to grant access via `Access-Control-Allow-Origin`. Note that this **must** be a domain, and not the wildcard `*`, as we are enforcing credentials in order to maintain a cookie session.
+
+For Apache, this might look like the below. Of course, changing the origin to match your headless front-end site:
+
+```
+Header add Access-Control-Allow-Origin "https://my-headless-site.test"
+Header add Access-Control-Allow-Credentials "true"
+```
+
+Lastly, we need to add the following to your `general.php` file:
+
+```php
+return [
+    'sameSiteCookieValue' => 'Lax',
+
+    'allowedGraphqlOrigins' => [
+        'https://my-headless-site.test',
+    ],
+];
+```
+
+Here, we are setting the [sameSiteCookieValue](https://craftcms.com/docs/3.x/config/config-settings.html#samesitecookievalue) to `Lax` (further reading [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite)) and setting the [allowedGraphqlOrigins](https://craftcms.com/docs/3.x/config/config-settings.html#allowedgraphqlorigins) to our headless front-end site (essentially setting `Access-Control-Allow-Origin`)
+
+Once these have been done, maintaining a session between client and server should be possible. As such, captchas should be evaluated correctly.
+
+
+##### reCAPTCHA & hCaptcha
+reCAPTCHA support is slightly more involved, as you'll need to fetch the token from reCAPTCHA first, then attach it to your mutation. The same applies for hCaptcha. How you implement this is up to you, but typically in your form's submit handler, you'll have:
+
+```js
+import { load } from 'recaptcha-v3';
+
+upsert(array, element) {
+    const i = array.findIndex((el) => { return el.handle === element.handle; });
+
+    if (i > -1) {
+        array[i] = element;
+    } else {
+        array.push(element);
+    }
+},
+
+onSubmit(e) {
+    // Load reCAPTCHA and request a token. Then attach it to our mutation
+    load(import.meta.env.VITE_RECAPTCHA_KEY).then((recaptcha) => {
+        recaptcha.execute().then((token) => {
+            // Add it to the form variables so it can be prepped. Be sure to check if it already
+            // included in the form data (submitting multiple times in a single request)
+            this.upsert(this.form.captchas, {
+                handle: 'recaptchaCaptcha',
+                name: 'g-recaptcha-response',
+                value: token,
+            });
+
+            const formData = getMutationVariables(this.form, $form);
+            const formMutation = getFormMutation(this.form);
+
+            // Construct the mutation as normal
+            this.$apollo.mutate({
+                // ...
+            });
+        });
+    });
+},
+```
+
+Where we first fetch the token from reCAPTCHA with our site key `.env` variable, and add it manually to `form.captchas`. Our helper functions `getMutationVariables()` and `getFormMutation()` will add the correct typing to the mutation, and inject them into the variables sent alongside the mutation. 
+
+:::tip
+We're also using an `upsert()` function to help when adding this captcha token to our forms object - which is completely optional. This just helps when submitting the form multiple times, and the captcha token for reCAPTCHA already exists (from the previous request). The `upsert()` function will unsure it's updated.
+:::
+
+You can also use the framework-agnostic package to help, as we have done using `npm install recaptcha-v3`.
+
+
 ## Credits & Thanks
 Thanks to [Dave Stockley / magicspon](https://github.com/magicspon) for their work on the mutations generator.
 
