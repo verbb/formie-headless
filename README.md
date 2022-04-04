@@ -115,7 +115,7 @@ Also see how we construct the GraphQL [schema and variables](https://github.com/
 #### Captchas
 A little extra work is required for captchas to be supported correctly. Ensure you add the following to your GQL form query to fetch tokens generated server-side.
 
-```json
+```
 {
     form (handle: "contactForm") {
         ...
@@ -133,7 +133,7 @@ Here, we're fetching 3 vital bits of information, which is the `handle` of the C
 
 To authenticate your enabled Captchas correctly, you'll need to include these in your mutation, sent to the server.
 
-```json
+```
 // Query
 mutation saveSubmission($yourName:contactForm_yourName_FormieNameInput $javascriptCaptcha: FormieCaptchaInput) {
     save_contactForm_Submission(yourName: $yourName, javascriptCaptcha: $javascriptCaptcha) {
@@ -241,9 +241,7 @@ onSubmit(e) {
 
 Where we first fetch the token from reCAPTCHA with our site key `.env` variable, and add it manually to `form.captchas`. Our helper functions `getMutationVariables()` and `getFormMutation()` will add the correct typing to the mutation, and inject them into the variables sent alongside the mutation. 
 
-:::tip
-We're also using an `upsert()` function to help when adding this captcha token to our forms object - which is completely optional. This just helps when submitting the form multiple times, and the captcha token for reCAPTCHA already exists (from the previous request). The `upsert()` function will unsure it's updated.
-:::
+> We're also using an `upsert()` function to help when adding this captcha token to our forms object - which is completely optional. This just helps when submitting the form multiple times, and the captcha token for reCAPTCHA already exists (from the previous request). The `upsert()` function will unsure it's updated.
 
 You can also use the framework-agnostic package to help, as we have done using `npm install recaptcha-v3`.
 
