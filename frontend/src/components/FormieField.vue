@@ -1,5 +1,5 @@
 <template>
-    <div v-if="canInclude" v-show="canShow" class="w-full flex-1 mb-5" v-bind="attrs">
+    <div v-if="canInclude" v-show="canShow" class="w-full flex-1 mb-5" v-bind="attrs" :data-field-conditions="field.conditions">
         <component :is="field.displayName" :field="field" />
     </div>
 </template>

@@ -59,6 +59,8 @@ import { resetValidation, runValidation, applyServerValidation } from '@utils/va
 import Alert from '@components/Alert.vue';
 import FormiePage from '@components/FormiePage.vue';
 
+import { FormieConditions } from '@utils/conditions'
+
 export default {
     components: {
         Alert,
@@ -80,6 +82,7 @@ export default {
             loading: false,
             alertState: null,
             validator: null,
+            conditions: null
         };
     },
 
@@ -102,6 +105,10 @@ export default {
             // Figure out why fragments don't work without this??
             fetchPolicy: 'no-cache',
         },
+    },
+
+    mounted() {
+        this.conditions = new FormieConditions({ $form: this.$refs.form })
     },
 
     methods: {
