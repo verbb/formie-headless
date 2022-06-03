@@ -349,7 +349,7 @@ export const FieldFragment = gql`
 export const FormFragment = gql`
     ${FieldFragment}
 
-    fragment FormFragment on Form {
+    fragment FormFragment on FormInterface {
         id
         title
         handle
