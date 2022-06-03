@@ -82,6 +82,7 @@ export default {
             loading: false,
             alertState: null,
             validator: null,
+            conditions: null
         };
     },
 
