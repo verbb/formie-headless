@@ -1,4 +1,4 @@
-dateModified: 1693653739
+dateModified: 1693654345
 email:
   fromEmail: demo@verbb.io
   fromName: 'Formie Headless'
@@ -16,13 +16,13 @@ meta:
     2a7dfeb1-2876-4d66-8cb7-ccb1c55b042a: 'Plain Text' # Plain Text
     6b96e0b0-0c3f-4de5-8631-0de30b34872c: Demo # Demo
     9ee7d758-c5b1-4f5a-a4d4-8c2e19e6cb15: Demo # Demo
-    20b1f3d0-fc0e-4182-b8b0-a619c9a57633: New # New
     00079eeb-bb55-40b2-867b-65ed3665219f: 'Formie Headless' # Formie Headless
-    733f65cb-1f36-44e4-a626-4d062c4224f0: 'Contact Form' # Contact Form
     12530c06-549d-4664-97d3-2a96906bde12: Demo # Demo
     adf62689-9e99-4040-8bb3-c06de71033be: Demo # Demo
     cf7b2541-4843-417e-9652-9a5d1a5a15a7: 'Formie Headless' # Formie Headless
     d644334e-fac0-46a1-8543-211e5168b02c: Common # Common
+    db4546f1-7c70-4695-8bab-42fda0481ec6: New # New
+    e100dd43-9a1a-4980-bfb5-806d761f1192: 'Contact Form' # Contact Form
     e721824b-3a96-44ce-979f-1e77d543df97: 'Public Schema' # Public Schema
     ee2e044d-867d-4cdf-b1b3-4e0d51e7a818: Default # Default
     fbe2bb47-a84e-4366-b957-3e127152e75a: Demo # Demo
@@ -30,7 +30,7 @@ plugins:
   formie:
     edition: standard
     enabled: true
-    licenseKey: 8ZPBQILHYI3D5WA3M5VK5FK9
+    licenseKey: EBTN7CN6DN91HL7M2DQHB3ZL
     schemaVersion: 2.0.10
   tag-manager:
     edition: standard

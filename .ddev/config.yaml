@@ -11,10 +11,8 @@ database:
     version: "8.0"
 use_dns_when_possible: true
 composer_version: "2"
-disable_settings_management: true # this must be removed after upgrading to craft 4
 web_environment: []
 nodejs_version: "18"
-disable_upload_dirs_warning: true
 
 # Key features of ddev's config.yaml:
 
