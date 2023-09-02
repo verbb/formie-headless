@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-  <component :is="field.headingSize" :class="field.headingSize">{{
+  <Component :is="field.headingSize" :class="field.headingSize">{{
     field.name
-  }}</component>
+  }}</Component>
 </template>

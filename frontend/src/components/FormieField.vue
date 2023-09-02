@@ -50,6 +50,6 @@ export default {
     class="w-full flex-1 mb-5"
     v-bind="attrs"
   >
-    <component :is="field.displayName" :field="field" />
+    <Component :is="field.displayName" :field="field" />
   </div>
 </template>

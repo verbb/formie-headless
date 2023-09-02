@@ -32,7 +32,7 @@ export default {
       {{ field.label }}
     </legend>
 
-    <field-instructions :field="field" position="above-input" />
+    <FieldInstructions :field="field" position="above-input" />
 
     <div class="flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -211,6 +211,6 @@ export default {
       {{ field.addRowLabel }}
     </button>
 
-    <field-instructions :field="field" position="below-input" />
+    <FieldInstructions :field="field" position="below-input" />
   </fieldset>
 </template>

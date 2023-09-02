@@ -33,7 +33,7 @@ export default {
 </script>
 
 <template>
-  <component
+  <Component
     :is="field.displayType"
     :field="field"
     :namespace-suffix="suffix"

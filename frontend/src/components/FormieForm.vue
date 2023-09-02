@@ -139,7 +139,7 @@ export default {
 <template>
   <div class="shadow rounded-md bg-white overflow-hidden">
     <form v-if="form" ref="form" novalidate @submit.prevent="onSubmit">
-      <alert
+      <Alert
         v-model="alertState"
         :success-text="form.settings.submitActionMessageHtml"
         :error-text="form.settings.errorMessageHtml"
@@ -191,7 +191,7 @@ export default {
         </div>
       </div>
 
-      <formie-page
+      <FormiePage
         v-for="(page, index) in form.pages"
         :key="index"
         :ref="'page-' + index"

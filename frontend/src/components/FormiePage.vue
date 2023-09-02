@@ -85,7 +85,7 @@ export default {
         :key="rowIndex"
         class="flex flex-wrap"
       >
-        <formie-field
+        <FormieField
           v-for="(field, fieldIndex) in row.fields"
           :key="fieldIndex"
           :field="field"

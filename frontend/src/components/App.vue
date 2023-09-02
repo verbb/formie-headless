@@ -36,7 +36,7 @@ export default {
       <img class="w-10 h-10" alt="Formie logo" src="@/assets/formie-logo.svg" />
     </div>
 
-    <formie-form :handle="formHandle" class="w-full lg:w-9/12 mx-auto" />
+    <FormieForm :handle="formHandle" class="w-full lg:w-9/12 mx-auto" />
 
     <div class="flex items-center justify-center p-4 sm:p-10">
       <a href="http://verbb.io/craft-plugins/formie" target="_blank">

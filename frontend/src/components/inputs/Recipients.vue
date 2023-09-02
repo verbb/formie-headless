@@ -19,5 +19,5 @@ export default {
 </script>
 
 <template>
-  <component :is="field.displayType" :field="field" />
+  <Component :is="field.displayType" :field="field" />
 </template>

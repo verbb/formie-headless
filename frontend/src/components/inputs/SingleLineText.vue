@@ -37,9 +37,9 @@ export default {
 </script>
 
 <template>
-  <field-label :id="getId()" :field="field" position="above-input" />
+  <FieldLabel :id="getId()" :field="field" position="above-input" />
 
-  <field-instructions :field="field" position="above-input" />
+  <FieldInstructions :field="field" position="above-input" />
 
   <input
     v-bind="attrs()"
@@ -49,7 +49,7 @@ export default {
     @keydown="wordCheck"
   />
 
-  <field-instructions :field="field" position="below-input" />
+  <FieldInstructions :field="field" position="below-input" />
 
-  <field-label :id="getId()" :field="field" position="below-input" />
+  <FieldLabel :id="getId()" :field="field" position="below-input" />
 </template>

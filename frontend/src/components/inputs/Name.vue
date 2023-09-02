@@ -26,7 +26,7 @@ export default {
         {{ field.label }}
       </legend>
 
-      <field-instructions :field="field" position="fieldset-start" />
+      <FieldInstructions :field="field" position="fieldset-start" />
 
       <div
         v-for="(fields, i) in getSubFields()"
@@ -38,7 +38,7 @@ export default {
           :key="index"
           class="flex-1 px-2 mb-5"
         >
-          <field-label
+          <FieldLabel
             :id="getId([index])"
             :field="subField"
             position="above-input"
@@ -70,7 +70,7 @@ export default {
             />
           </div>
 
-          <field-label
+          <FieldLabel
             :id="getId([index])"
             :field="subField"
             position="below-input"
@@ -81,9 +81,9 @@ export default {
   </template>
 
   <template v-else>
-    <field-label :id="getId()" :field="field" position="above-input" />
+    <FieldLabel :id="getId()" :field="field" position="above-input" />
 
-    <field-instructions :field="field" position="above-input" />
+    <FieldInstructions :field="field" position="above-input" />
 
     <input
       v-bind="attrs()"
@@ -91,8 +91,8 @@ export default {
       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
     />
 
-    <field-instructions :field="field" position="below-input" />
+    <FieldInstructions :field="field" position="below-input" />
 
-    <field-label :id="getId()" :field="field" position="below-input" />
+    <FieldLabel :id="getId()" :field="field" position="below-input" />
   </template>
 </template>

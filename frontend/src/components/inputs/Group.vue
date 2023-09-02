@@ -11,15 +11,15 @@ export default {
 </script>
 
 <template>
-  <field-label :id="getId()" :field="field" position="above-input" />
+  <FieldLabel :id="getId()" :field="field" position="above-input" />
 
-  <field-instructions :field="field" position="above-input" />
+  <FieldInstructions :field="field" position="above-input" />
 
   <fieldset
     class="relative mb-5 bg-gray-100 p-4 rounded-md border border-gray-200"
   >
     <div v-for="(nestedField, fieldIndex) in field.fields" :key="fieldIndex">
-      <component
+      <Component
         :is="nestedField.displayName"
         :field="nestedField"
         :namespace="[field.handle]"
@@ -27,7 +27,7 @@ export default {
     </div>
   </fieldset>
 
-  <field-instructions :field="field" position="below-input" />
+  <FieldInstructions :field="field" position="below-input" />
 
-  <field-label :id="getId()" :field="field" position="below-input" />
+  <FieldLabel :id="getId()" :field="field" position="below-input" />
 </template>

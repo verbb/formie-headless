@@ -13,7 +13,7 @@ export default {
       <span v-if="field.required" class="text-red-500">*</span>
     </legend>
 
-    <field-instructions :field="field" position="fieldset-start" />
+    <FieldInstructions :field="field" position="fieldset-start" />
 
     <div class="mt-2 space-y-2">
       <div
@@ -39,6 +39,6 @@ export default {
       </div>
     </div>
 
-    <field-instructions :field="field" position="fieldset-end" />
+    <FieldInstructions :field="field" position="fieldset-end" />
   </fieldset>
 </template>

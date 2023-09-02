@@ -34,7 +34,7 @@ export default {
       {{ field.label }}
     </legend>
 
-    <field-instructions :field="field" position="fieldset-start" />
+    <FieldInstructions :field="field" position="fieldset-start" />
 
     <div
       v-for="(fields, i) in getSubFields()"
@@ -46,7 +46,7 @@ export default {
         :key="index"
         class="flex-1 px-2 mb-5"
       >
-        <field-label
+        <FieldLabel
           :id="getId([index])"
           :field="subField"
           position="above-input"
@@ -78,7 +78,7 @@ export default {
           />
         </div>
 
-        <field-label
+        <FieldLabel
           :id="getId([index])"
           :field="subField"
           position="below-input"
