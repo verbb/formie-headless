@@ -1,8 +1,8 @@
 {
     "require": {
-        "craftcms/cms": "^3.6.4",
-        "ether/tags": "^1.0",
-        "verbb/formie": "dev-craft-3",
+        "craftcms/cms": "^4.0.0",
+        "ether/tags": "^2.0.0",
+        "verbb/formie": "^2.0.35",
         "vlucas/phpdotenv": "^3.4.0"
     },
     "require-dev": {
@@ -12,7 +12,11 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "7.2.5"
+            "php": "8.0.2"
+        },
+        "allow-plugins": {
+            "craftcms/plugin-installer": true,
+            "yiisoft/yii2-composer": true
         }
     },
     "scripts": {

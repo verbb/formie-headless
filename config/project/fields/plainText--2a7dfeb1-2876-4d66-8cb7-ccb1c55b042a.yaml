@@ -2,7 +2,7 @@ columnSuffix: kukrbgdv
 contentColumnType: text
 fieldGroup: d644334e-fac0-46a1-8543-211e5168b02c # Common
 handle: plainText
-instructions: ''
+instructions: null
 name: 'Plain Text'
 searchable: false
 settings:

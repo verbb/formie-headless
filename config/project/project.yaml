@@ -1,8 +1,16 @@
-dateModified: 1628343658
+dateModified: 1693653739
 email:
   fromEmail: demo@verbb.io
   fromName: 'Formie Headless'
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  demo:
+    hasUrls: false
+    name: Demo
+    settings:
+      path: '@webroot/uploads/demo'
+    type: craft\fs\Local
+    url: null
 meta:
   __names__:
     2a7dfeb1-2876-4d66-8cb7-ccb1c55b042a: 'Plain Text' # Plain Text
@@ -23,7 +31,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 8ZPBQILHYI3D5WA3M5VK5FK9
-    schemaVersion: 1.1.11
+    schemaVersion: 2.0.10
   tag-manager:
     edition: standard
     enabled: true
@@ -32,10 +40,11 @@ system:
   edition: pro
   live: true
   name: 'Formie Headless'
-  schemaVersion: 3.7.7
+  schemaVersion: 4.5.3.0
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
+  deactivateByDefault: false
   defaultGroup: null
   photoSubpath: null
   photoVolumeUid: null

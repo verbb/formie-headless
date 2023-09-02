@@ -168,7 +168,7 @@ data:
     validationOnFocus: '1'
     validationOnSubmit: '1'
   userDeletedAction: retain
-defaultStatusId: null
+defaultStatusId: 0
 handle: contactForm
 name: 'Contact Form'
 templateId: null
