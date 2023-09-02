@@ -1,14 +1,3 @@
-<template>
-  <div
-    v-if="canInclude"
-    v-show="canShow"
-    class="w-full flex-1 mb-5"
-    v-bind="attrs"
-  >
-    <component :is="field.displayName" :field="field" />
-  </div>
-</template>
-
 <script>
 import { attributesTable } from "@utils/helpers";
 
@@ -53,3 +42,14 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div
+    v-if="canInclude"
+    v-show="canShow"
+    class="w-full flex-1 mb-5"
+    v-bind="attrs"
+  >
+    <component :is="field.displayName" :field="field" />
+  </div>
+</template>

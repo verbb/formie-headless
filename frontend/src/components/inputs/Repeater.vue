@@ -1,3 +1,35 @@
+<script>
+import { uniqueId } from "lodash-es";
+
+import FieldMixin from "@mixins/FieldMixin";
+
+import AllInputs from "@components/inputs";
+
+export default {
+  components: AllInputs,
+
+  mixins: [FieldMixin],
+
+  data() {
+    return {
+      rows: [],
+    };
+  },
+
+  methods: {
+    onAdd() {
+      this.rows.push({
+        __id: uniqueId(),
+      });
+    },
+
+    onDelete(rIndex) {
+      this.rows.splice(rIndex, 1);
+    },
+  },
+};
+</script>
+
 <template>
   <field-label :id="getId()" :field="field" position="above-input" />
 
@@ -49,35 +81,3 @@
 
   <field-label :id="getId()" :field="field" position="below-input" />
 </template>
-
-<script>
-import { uniqueId } from "lodash-es";
-
-import FieldMixin from "@mixins/FieldMixin";
-
-import AllInputs from "@components/inputs";
-
-export default {
-  components: AllInputs,
-
-  mixins: [FieldMixin],
-
-  data() {
-    return {
-      rows: [],
-    };
-  },
-
-  methods: {
-    onAdd() {
-      this.rows.push({
-        __id: uniqueId(),
-      });
-    },
-
-    onDelete(rIndex) {
-      this.rows.splice(rIndex, 1);
-    },
-  },
-};
-</script>

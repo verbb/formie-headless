@@ -1,3 +1,11 @@
+<script>
+import FieldMixin from "@mixins/FieldMixin";
+
+export default {
+  mixins: [FieldMixin],
+};
+</script>
+
 <template>
   <fieldset :aria-labelledby="getId()">
     <legend class="block text-sm font-medium text-gray-700 mb-1">
@@ -34,11 +42,3 @@
     <field-instructions :field="field" position="fieldset-end" />
   </fieldset>
 </template>
-
-<script>
-import FieldMixin from "@mixins/FieldMixin";
-
-export default {
-  mixins: [FieldMixin],
-};
-</script>

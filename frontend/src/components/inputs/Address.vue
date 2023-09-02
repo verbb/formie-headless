@@ -1,3 +1,33 @@
+<script>
+import FieldMixin from "@mixins/FieldMixin";
+
+export default {
+  mixins: [FieldMixin],
+
+  data() {
+    return {
+      subFields: [
+        ["address1"],
+        ["address2"],
+        ["address3"],
+        ["city", "zip"],
+        ["state", "country"],
+      ],
+
+      autocomplete: {
+        address1: "address-line1",
+        address2: "address-line2",
+        address3: "address-line3",
+        city: "address-level2",
+        zip: "postal-code",
+        state: "address-level1",
+        country: "country",
+      },
+    };
+  },
+};
+</script>
+
 <template>
   <fieldset :aria-labelledby="getId()" class="-mb-5">
     <legend class="block text-sm font-medium text-gray-700 mb-1">
@@ -57,33 +87,3 @@
     </div>
   </fieldset>
 </template>
-
-<script>
-import FieldMixin from "@mixins/FieldMixin";
-
-export default {
-  mixins: [FieldMixin],
-
-  data() {
-    return {
-      subFields: [
-        ["address1"],
-        ["address2"],
-        ["address3"],
-        ["city", "zip"],
-        ["state", "country"],
-      ],
-
-      autocomplete: {
-        address1: "address-line1",
-        address2: "address-line2",
-        address3: "address-line3",
-        city: "address-level2",
-        zip: "postal-code",
-        state: "address-level1",
-        country: "country",
-      },
-    };
-  },
-};
-</script>

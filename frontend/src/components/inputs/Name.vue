@@ -1,3 +1,24 @@
+<script>
+import FieldMixin from "@mixins/FieldMixin";
+
+export default {
+  mixins: [FieldMixin],
+
+  data() {
+    return {
+      subFields: [["prefix", "firstName", "middleName", "lastName"]],
+
+      autocomplete: {
+        prefix: "honorific-prefix",
+        firstName: "given-name",
+        middleName: "additional-name",
+        lastName: "family-name",
+      },
+    };
+  },
+};
+</script>
+
 <template>
   <template v-if="field.useMultipleFields">
     <fieldset :aria-labelledby="getId()" class="-mb-5">
@@ -75,24 +96,3 @@
     <field-label :id="getId()" :field="field" position="below-input" />
   </template>
 </template>
-
-<script>
-import FieldMixin from "@mixins/FieldMixin";
-
-export default {
-  mixins: [FieldMixin],
-
-  data() {
-    return {
-      subFields: [["prefix", "firstName", "middleName", "lastName"]],
-
-      autocomplete: {
-        prefix: "honorific-prefix",
-        firstName: "given-name",
-        middleName: "additional-name",
-        lastName: "family-name",
-      },
-    };
-  },
-};
-</script>

@@ -1,11 +1,3 @@
-<template>
-  <component
-    :is="field.displayType"
-    :field="field"
-    :namespace-suffix="suffix"
-  />
-</template>
-
 <script>
 import FieldMixin from "@mixins/FieldMixin";
 
@@ -39,3 +31,11 @@ export default {
   },
 };
 </script>
+
+<template>
+  <component
+    :is="field.displayType"
+    :field="field"
+    :namespace-suffix="suffix"
+  />
+</template>

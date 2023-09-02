@@ -1,3 +1,11 @@
+<script>
+import FieldMixin from "@mixins/FieldMixin";
+
+export default {
+  mixins: [FieldMixin],
+};
+</script>
+
 <template>
   <hr
     :style="[
@@ -7,11 +15,3 @@
     ]"
   />
 </template>
-
-<script>
-import FieldMixin from "@mixins/FieldMixin";
-
-export default {
-  mixins: [FieldMixin],
-};
-</script>

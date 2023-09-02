@@ -1,9 +1,3 @@
-<template>
-  <p v-if="canShow()" class="text-sm text-gray-500 mb-1">
-    {{ field.instructions }}
-  </p>
-</template>
-
 <script>
 import { upperFirst, camelCase } from "lodash-es";
 
@@ -42,3 +36,9 @@ export default {
   },
 };
 </script>
+
+<template>
+  <p v-if="canShow()" class="text-sm text-gray-500 mb-1">
+    {{ field.instructions }}
+  </p>
+</template>

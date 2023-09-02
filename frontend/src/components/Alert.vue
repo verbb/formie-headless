@@ -1,3 +1,44 @@
+<script>
+export default {
+  props: {
+    successText: {
+      type: String,
+      required: true,
+    },
+
+    errorText: {
+      type: String,
+      required: true,
+    },
+
+    modelValue: {
+      type: [String, Boolean],
+      default: null,
+    },
+  },
+
+  emits: ["update:modelValue"],
+
+  computed: {
+    state: {
+      get() {
+        return this.modelValue;
+      },
+
+      set(newValue) {
+        this.$emit("update:modelValue", newValue);
+      },
+    },
+  },
+
+  methods: {
+    onClose() {
+      this.state = null;
+    },
+  },
+};
+</script>
+
 <template>
   <div v-if="state === 'success'" class="rounded-md bg-green-50 p-4 sm:px-6">
     <div class="flex">
@@ -97,44 +138,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    successText: {
-      type: String,
-      required: true,
-    },
-
-    errorText: {
-      type: String,
-      required: true,
-    },
-
-    modelValue: {
-      type: [String, Boolean],
-      default: null,
-    },
-  },
-
-  emits: ["update:modelValue"],
-
-  computed: {
-    state: {
-      get() {
-        return this.modelValue;
-      },
-
-      set(newValue) {
-        this.$emit("update:modelValue", newValue);
-      },
-    },
-  },
-
-  methods: {
-    onClose() {
-      this.state = null;
-    },
-  },
-};
-</script>

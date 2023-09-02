@@ -1,3 +1,31 @@
+<script>
+import { uniqueId } from "lodash-es";
+
+import FieldMixin from "@mixins/FieldMixin";
+
+export default {
+  mixins: [FieldMixin],
+
+  data() {
+    return {
+      rows: [],
+    };
+  },
+
+  methods: {
+    onAdd() {
+      this.rows.push({
+        __id: uniqueId(),
+      });
+    },
+
+    onDelete(rIndex) {
+      this.rows.splice(rIndex, 1);
+    },
+  },
+};
+</script>
+
 <template>
   <fieldset :aria-labelledby="getId()" class="contents">
     <legend class="block text-sm font-medium text-gray-700 mb-1">
@@ -186,31 +214,3 @@
     <field-instructions :field="field" position="below-input" />
   </fieldset>
 </template>
-
-<script>
-import { uniqueId } from "lodash-es";
-
-import FieldMixin from "@mixins/FieldMixin";
-
-export default {
-  mixins: [FieldMixin],
-
-  data() {
-    return {
-      rows: [],
-    };
-  },
-
-  methods: {
-    onAdd() {
-      this.rows.push({
-        __id: uniqueId(),
-      });
-    },
-
-    onDelete(rIndex) {
-      this.rows.splice(rIndex, 1);
-    },
-  },
-};
-</script>

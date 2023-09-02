@@ -1,13 +1,3 @@
-<template>
-  <label
-    v-if="canShow()"
-    :for="id"
-    class="block text-sm font-medium text-gray-700 mb-1"
-  >
-    {{ field.label }} <span v-if="field.required" class="text-red-500">*</span>
-  </label>
-</template>
-
 <script>
 import { upperFirst, camelCase } from "lodash-es";
 
@@ -48,3 +38,13 @@ export default {
   },
 };
 </script>
+
+<template>
+  <label
+    v-if="canShow()"
+    :for="id"
+    class="block text-sm font-medium text-gray-700 mb-1"
+  >
+    {{ field.label }} <span v-if="field.required" class="text-red-500">*</span>
+  </label>
+</template>
