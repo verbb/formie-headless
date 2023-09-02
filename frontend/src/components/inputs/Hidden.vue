@@ -1,12 +1,11 @@
 <template>
-    <input v-bind="attrs()" type="hidden" :value="field.defaultValue">
+  <input v-bind="attrs()" type="hidden" :value="field.defaultValue" />
 </template>
 
 <script>
-import FieldMixin from '@mixins/FieldMixin';
+import FieldMixin from "@mixins/FieldMixin";
 
 export default {
-    mixins: [FieldMixin],
+  mixins: [FieldMixin],
 };
-
 </script>
