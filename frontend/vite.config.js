@@ -37,4 +37,11 @@ export default ({ command }) => ({
             '@graphql': path.resolve('./src/graphql'),
         },
     },
+    server: {
+        // respond to all network requests
+        host: '0.0.0.0',
+        // we need a strict port to match on PHP side
+        strictPort: true,
+        port: 3000
+    }
 })
