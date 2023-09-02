@@ -2,18 +2,23 @@ fieldLayouts:
   f6ac1175-0650-454a-87ac-3af1d5ed99c4:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 2a7dfeb1-2876-4d66-8cb7-ccb1c55b042a # Plain Text
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 2b8946be-0cd8-46d6-ad46-7e61b1f56646
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 2eb1fa2c-f225-4b23-b5ae-8351c1fc67c0
+        userCondition: null
 handle: demo
 name: Demo
 sortOrder: 1
