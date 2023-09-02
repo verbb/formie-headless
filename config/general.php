@@ -8,33 +8,27 @@
  * @see \craft\config\GeneralConfig
  */
 
+use craft\config\GeneralConfig;
 use craft\helpers\App;
 
-$isDev = App::env('ENVIRONMENT') === 'dev';
-$isProd = App::env('ENVIRONMENT') === 'production';
-
-return [
-    // Default Week Start Day (0 = Sunday, 1 = Monday...)
-    'defaultWeekStartDay' => 1,
-
-    // Whether generated URLs should omit "index.php"
-    'omitScriptNameInUrls' => true,
-
-    // The URI segment that tells Craft to load the control panel
-    'cpTrigger' => App::env('CP_TRIGGER') ?: 'admin',
-
-    // The secure key Craft will use for hashing and encrypting data
-    'securityKey' => App::env('SECURITY_KEY'),
-
-    // Whether Dev Mode should be enabled (see https://craftcms.com/guides/what-dev-mode-does)
-    'devMode' => $isDev,
-
-    // Whether administrative changes should be allowed
-    'allowAdminChanges' => $isDev,
-
-    // Whether crawlers should be allowed to index pages and following links
-    'disallowRobots' => !$isProd,
-
-    // GraphQL/Headless setup
-    'headless' => true,
-];
+return GeneralConfig::create()
+    // Set the default week start day for date pickers (0 = Sunday, 1 = Monday, etc.)
+    ->defaultWeekStartDay(1)
+    // Prevent generated URLs from including "index.php"
+    ->omitScriptNameInUrls()
+    // Enable Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
+    ->devMode(App::env('DEV_MODE') ?? false)
+    // Preload Single entries as Twig variables
+    ->preloadSingles()
+    // Allow administrative changes
+    ->allowAdminChanges(App::env('ALLOW_ADMIN_CHANGES') ?? false)
+    // Disallow robots
+    ->disallowRobots(App::env('DISALLOW_ROBOTS') ?? false)
+    // Prevent user enumeration attacks
+    ->preventUserEnumeration()
+    // Set the @webroot alias so the clear-caches command knows where to find CP resources
+    ->aliases([
+        '@web' => App::env('CRAFT_WEB_URL'),
+        '@webroot' => dirname(__DIR__) . '/web',
+    ])
+    ->headlessMode(true);
