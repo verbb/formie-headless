@@ -1,4 +1,4 @@
-dateModified: 1693654836
+dateModified: 1717075844
 email:
   fromEmail: demo@verbb.io
   fromName: 'Formie Headless'
@@ -31,7 +31,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: EBTN7CN6DN91HL7M2DQHB3ZL
-    schemaVersion: 2.0.10
+    schemaVersion: 2.0.15
   tag-manager:
     edition: standard
     enabled: true
