@@ -3,57 +3,56 @@
 @tailwind utilities;
 
 .loading {
-    @apply relative pointer-events-none;
+  @apply relative pointer-events-none;
 
-    color: transparent !important;
-    min-height: theme('spacing.4');
+  color: transparent !important;
+  min-height: theme("spacing.4");
 }
 
 .loading::after {
-    @apply absolute block h-4 w-4 -mt-2 -ml-2 border-2 border-solid rounded-full;
-    @apply border-indigo-500;
+  @apply absolute block h-4 w-4 -mt-2 -ml-2 border-2 border-solid rounded-full;
+  @apply border-indigo-500;
 
-    top: 50%;
-    left: 50%;
-    z-index: 1;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
 
-    animation: loading 0.5s infinite linear;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    content: '';
+  animation: loading 0.5s infinite linear;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
 }
 
 .loading.loading-lg {
-    min-height: theme('spacing.8');
-}  
+  min-height: theme("spacing.8");
+}
 
 .loading.loading-lg::after {
-    @apply h-8 w-8 -mt-4 -ml-4;
+  @apply h-8 w-8 -mt-4 -ml-4;
 }
 
 a.loading::after,
 button.loading::after {
-    @apply border-white;
-    
-    border-right-color: transparent;
-    border-top-color: transparent;
+  @apply border-white;
+
+  border-right-color: transparent;
+  border-top-color: transparent;
 }
 
 @keyframes loading {
-    0% {
-        transform: rotate(0);
-    }
+  0% {
+    transform: rotate(0);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-
 [data-formie-input-error] {
-    @apply border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500;
+  @apply border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500;
 }
 
 [data-formie-error-text] {
-    @apply mt-2 text-sm text-red-600;
+  @apply mt-2 text-sm text-red-600;
 }

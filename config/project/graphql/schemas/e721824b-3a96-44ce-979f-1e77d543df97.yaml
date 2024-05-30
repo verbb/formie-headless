@@ -17,3 +17,4 @@ scope:
   - 'formieSubmissions.all:create'
   - 'formieSubmissions.all:save'
   - 'formieSubmissions.all:delete'
+  - 'sites.00079eeb-bb55-40b2-867b-65ed3665219f:read' # Formie Headless

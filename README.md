@@ -13,22 +13,25 @@ Take the demo for a spin!
 ## Project summary
 We're using Vue for our front-end, but the techniques employed here can be utilised on any number of GraphQL-based projects. Even if you're not using Vue, we'd encourage you to spin up the project as-is to see it all working, and you can pick-and-choose functionality to use in your own applications.
 
+- [DDEV](https://ddev.com/) is used for local development.
 - [Vite.js](https://vitejs.dev/) is used for the build system as per [Vite.js Next Generation Frontend Tooling + Craft CMS](https://nystudio107.com/blog/using-vite-js-next-generation-frontend-tooling-with-craft-cms)
-- [Vue.js 3.0](https://vuejs.org/) is used for the interactive bits.
+- [Vue.js 3](https://vuejs.org/) is used for the interactive bits.
 - [Tailwind CSS](https://tailwindcss.com/).
 - [ESlint](https://eslint.org/) to keep JS lookin' good!
+- [Prettier](https://prettier.io/) to keep the code correctly and consistently formatted.
 - [Vue Apollo](https://apollo.vuejs.org/) Easy GraphQL handling using Apollo for queries and mutations.
 - [Pristine.js](https://pristine.js.org/) Simple form validation.
 
 ## Setting up Craft
 This repository contains the Craft CMS project files in the main root folder. Little to no changes have been made from the [craftcms/craft](https://github.com/craftcms/craft) project.
 
-- Run `composer install` at the root of this project.
+- Clone this repository to your local machine.
+- Ensure you have [DDEV](https://ddev.com/) installed.
+- Run `ddev start` at the root of the project.
+- Run `ddev composer install` at the root of the project.
 - Ensure you setup your `.env` file as you normally would.
-- Point your favourite local server virtual host to the `web` directory.
-- We'll assume you'll set it up with the domain `http://formie-headless.test` - but this can be anything you like.
-
-We've also included a `database.sql` you can use to get things off the a great start. It comes pre-configured with a few forms, fields, and other mock data like entries, etc. GraphQL will also be setup.
+- If this is your first time running the project, then run `ddev craft setup/security-key` to generate a security key, and also run `ddev import-db < database.sql` to import the data.
+- Finally, open the browser and go to [https://formie-headless.ddev.site/admin](https://formie-headless.ddev.site/admin).
 
 The CP login credentials are initially set as follows:
 
@@ -44,7 +47,7 @@ The front-end Vite project is contained in `frontend`. The two projects are comp
 There's two env settings you'll need to configure.
 
 ```
-VITE_GQL_URL="http://formie-headless.test/api"
+VITE_GQL_URL="https://formie-headless.ddev.site/api"
 ```
 
 This is the full URL to your GraphQL endpoint. We'll use this to query forms and run mutations on submissions.
@@ -53,12 +56,12 @@ This is the full URL to your GraphQL endpoint. We'll use this to query forms and
 VITE_DEFAULT_FORM="contactForm"
 ```
 
-The handle of the form you would like to show. You can also pass in a query param `http://localhost:3000/?form=formHandle` to spin up an example of any form.
+The handle of the form you would like to show. You can also pass in a query param `http://formie-headless.ddev.site:3000/?form=formHandle` to spin up an example of any form.
 
 ### Dev server
-- Open a terminal and navigate to `frontend`, then run `npm install`.
-- Start up the Vite dev server by typing `npm run dev`.
-- Navigate to `http://localhost:3000` to see the demo.
+- Open a terminal, then run `ddev exec "cd frontend && npm install"` at the root of the project.
+- Start up the Vite dev server by typing `ddev exec "cd frontend && npm run dev"`.
+- Navigate to `https://formie-headless.ddev.site:3000` to see the demo.
 
 You should see the "Contact Form"!
 
